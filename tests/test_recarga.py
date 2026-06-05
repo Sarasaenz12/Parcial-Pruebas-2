@@ -10,3 +10,8 @@ def test_monto_por_debajo_del_minimo():
 def test_monto_por_encima_del_maximo():
     with pytest.raises(MontoInvalidoError):
         calcular_recarga(50001)
+
+def test_monto_valido_rango_bajo():
+    resultado = calcular_recarga(5000)
+    assert resultado["monto"] == 5000
+    assert resultado["bonificacion_pct"] == 0
