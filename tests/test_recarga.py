@@ -45,3 +45,18 @@ def test_justo_antes_umbral_25():
     resultado = calcular_recarga(29999)
     assert resultado["monto"] == 29999
     assert resultado["bonificacion_pct"] == 10
+
+def test_premium_suma_5_con_bonificacion_10():
+    resultado = calcular_recarga(10000, premium=True)
+    assert resultado["monto"] == 10000
+    assert resultado["bonificacion_pct"] == 15
+
+def test_premium_sin_bonificacion_base():
+    resultado = calcular_recarga(5000, premium=True)
+    assert resultado["monto"] == 5000
+    assert resultado["bonificacion_pct"] == 5
+
+def test_premium_con_bonificacion_25():
+    resultado = calcular_recarga(30000, premium=True)
+    assert resultado["monto"] == 30000
+    assert resultado["bonificacion_pct"] == 30
