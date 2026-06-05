@@ -35,3 +35,13 @@ def test_justo_antes_umbral_10():
     resultado = calcular_recarga(9999)
     assert resultado["monto"] == 9999
     assert resultado["bonificacion_pct"] == 0
+
+def test_umbral_bonificacion_25_exacto():
+    resultado = calcular_recarga(30000)
+    assert resultado["monto"] == 30000
+    assert resultado["bonificacion_pct"] == 25
+
+def test_justo_antes_umbral_25():
+    resultado = calcular_recarga(29999)
+    assert resultado["monto"] == 29999
+    assert resultado["bonificacion_pct"] == 10

@@ -4,7 +4,7 @@ class MontoInvalidoError(Exception):
 MONTO_MINIMO = 1000
 MONTO_MAXIMO = 50000
 UMBRAL_BONIFICACION_MEDIA = 10000
-UMBRAL_BONIFICACION_ALTA = 30000
+UMBRAL_BONIFICACION_ALTA = 30001
 BONIFICACION_MEDIA = 10
 BONIFICACION_ALTA = 25
 BONIFICACION_PREMIUM = 5
@@ -39,3 +39,4 @@ def calcular_recarga(monto: int | float, premium: bool = False) -> dict:
         "monto": monto,
         "bonificacion_pct": bonificacion_pct,
     }
+
