@@ -2,21 +2,32 @@ class MontoInvalidoError(Exception):
     pass
 
 
+MONTO_MINIMO = 1000
+MONTO_MAXIMO = 50000
+UMBRAL_BONIFICACION_MEDIA = 10000
+UMBRAL_BONIFICACION_ALTA = 30000
+BONIFICACION_MEDIA = 10
+BONIFICACION_ALTA = 25
+BONIFICACION_PREMIUM = 5
+
+
 def _validar_monto(monto: int | float) -> None:
-    if monto < 1000 or monto > 50000:
-        raise MontoInvalidoError("El monto debe estar entre $1.000 y $50.000")
+    if monto < MONTO_MINIMO or monto > MONTO_MAXIMO:
+        raise MontoInvalidoError(
+            f"El monto debe estar entre ${MONTO_MINIMO:,} y ${MONTO_MAXIMO:,}"
+        )
 
 
 def _calcular_bonificacion(monto: int | float, premium: bool) -> int:
-    if monto >= 30000:
-        bonificacion = 25
-    elif monto >= 10000:
-        bonificacion = 10
+    if monto >= UMBRAL_BONIFICACION_ALTA:
+        bonificacion = BONIFICACION_ALTA
+    elif monto >= UMBRAL_BONIFICACION_MEDIA:
+        bonificacion = BONIFICACION_MEDIA
     else:
         bonificacion = 0
 
     if premium:
-        bonificacion += 5
+        bonificacion += BONIFICACION_PREMIUM
 
     return bonificacion
 
