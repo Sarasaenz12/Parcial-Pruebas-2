@@ -15,3 +15,8 @@ def test_monto_valido_rango_bajo():
     resultado = calcular_recarga(5000)
     assert resultado["monto"] == 5000
     assert resultado["bonificacion_pct"] == 0
+
+def test_limite_inferior_exacto():
+    resultado = calcular_recarga(1000)
+    assert resultado["monto"] == 1000
+    assert resultado["bonificacion_pct"] == 0
