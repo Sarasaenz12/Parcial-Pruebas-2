@@ -18,6 +18,7 @@ def _validar_monto(monto: int | float) -> None:
 
 
 def _calcular_bonificacion(monto: int | float, premium: bool) -> int:
+    """Calcula el porcentaje de bonificación según el monto y el plan."""
     if monto >= UMBRAL_BONIFICACION_ALTA:
         bonificacion = BONIFICACION_ALTA
     elif monto >= UMBRAL_BONIFICACION_MEDIA:
