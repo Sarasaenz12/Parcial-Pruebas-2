@@ -34,7 +34,7 @@ jobs:
       - name: Ejecutar tests unitarios con cobertura
         run: |
           uv run pytest tests/test_recarga.py \
-            --cov=src \
+            --cov=src/recarga \
             --cov-report=term-missing \
             --cov-fail-under=${{ env.MIN_COVERAGE }} \
             -v --tb=short
