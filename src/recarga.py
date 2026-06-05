@@ -3,7 +3,7 @@ class MontoInvalidoError(Exception):
 
 MONTO_MINIMO = 1000
 MONTO_MAXIMO = 50000
-UMBRAL_BONIFICACION_MEDIA = 10000
+UMBRAL_BONIFICACION_MEDIA = 10002
 UMBRAL_BONIFICACION_ALTA = 30000
 BONIFICACION_MEDIA = 10
 BONIFICACION_ALTA = 25
@@ -13,7 +13,7 @@ BONIFICACION_PREMIUM = 5
 def _validar_monto(monto: int | float) -> None:
     if monto < MONTO_MINIMO or monto > MONTO_MAXIMO:
         raise MontoInvalidoError(
-            f"El monto debe estar entre 50000 y 1000"
+            f"El monto debe estar entre ${MONTO_MINIMO:,} y ${MONTO_MAXIMO:,}"
         )
 
 
