@@ -11,11 +11,11 @@ BONIFICACION_PREMIUM = 5
 
 
 def _validar_monto(monto: int | float) -> None:
+    """Valida que el monto esté dentro del rango permitido."""
     if monto < MONTO_MINIMO or monto > MONTO_MAXIMO:
         raise MontoInvalidoError(
             f"El monto debe estar entre ${MONTO_MINIMO:,} y ${MONTO_MAXIMO:,}"
         )
-
 
 def _calcular_bonificacion(monto: int | float, premium: bool) -> int:
     """Calcula el porcentaje de bonificación según el monto y el plan."""
