@@ -19,4 +19,7 @@ dependencies = [
 asyncio_mode = "auto"
 
 [tool.coverage.run]
-omit = ["src/api.py"]
+omit = ["src/api.py", "*/api.py"]
+
+[tool.coverage.report]
+omit = ["src/api.py", "*/api.py"]
